@@ -1,8 +1,37 @@
 import 'styled-components'
-import { theme } from '@/styles/Theme'
-
-export type ITheme = typeof theme
 
 declare module 'styled-components' {
-    export interface DefaultTheme extends ITheme {}
+    export interface DefaultTheme {
+        cores: {
+            primaria: string
+            secundaria: string
+            terciaria: string
+            fundo: {
+                primaria: string
+                secundario: string
+            }
+            texto: {
+                primaria: string
+                secundaria: string
+                terciaria: string
+            }
+        }
+        fontes: {
+            familia: {
+                primaria: string
+            }
+            tamanho: {
+                pequeno: string
+                medio: string
+                grande: string
+            }
+        }
+        paddings: {
+            lateral: {
+                pequeno: string
+                medio: string
+                grande: string
+            }
+        }
+    }
 }
