@@ -8,7 +8,7 @@ const Banner = () => {
             <Logo />
             <Imagem>
                 <source srcSet={imagemMd} media="(min-width: 1024px)" />
-                <img src={imagemSm} />
+                <img src={imagemSm} alt="Participante com um presente na mão" />
             </Imagem>
         </Container>
     )
