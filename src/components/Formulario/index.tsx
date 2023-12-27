@@ -1,12 +1,18 @@
+import { Botao, Campo, Icone, Input } from './styles'
+import PersonAddIcon from '@mui/icons-material/PersonAdd'
+
 const Formulario = () => {
     return (
-        <form>
-            <input
+        <Campo>
+            <Icone>
+                <PersonAddIcon />
+            </Icone>
+            <Input
                 type="text"
                 placeholder="Insira os nomes dos participantes"
             />
-            <button disabled>Adicionar</button>
-        </form>
+            <Botao disabled>Adicionar</Botao>
+        </Campo>
     )
 }
 
