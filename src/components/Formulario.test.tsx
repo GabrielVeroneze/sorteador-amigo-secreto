@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
+import { theme } from '../styles/Theme'
 import Formulario from './Formulario'
 
 test('quando o input está vazio, novos participantes não podem ser adicionados', () => {
-    render(<Formulario />)
+    render(
+        <ThemeProvider theme={theme}>
+            <Formulario />
+        </ThemeProvider>
+    )
 
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
 
