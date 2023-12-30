@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router-dom'
 import Banner from '@/components/Banner'
+import { Principal } from './styles'
 
 const Layout = () => {
     return (
         <>
             <Banner />
-            <Outlet />
+            <Principal>
+                <Outlet />
+            </Principal>
         </>
     )
 }
