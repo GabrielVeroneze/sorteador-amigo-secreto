@@ -21,7 +21,7 @@ export const Icone = styled.div`
     left: 26px;
     position: absolute;
     top: 12px;
-    
+
     @media ${device.lg} {
         left: 52px;
         top: 28px;
@@ -47,7 +47,7 @@ export const Input = styled.input`
         border-radius: 37.5px 0px 0px 37.5px;
         box-shadow: 4px 4px 0px 0px #000000;
         font-size: 1rem;
-        height: 82px;;
+        height: 82px;
         padding: 1.125rem 2.25rem 1.125rem 6.625rem;
     }
 `
