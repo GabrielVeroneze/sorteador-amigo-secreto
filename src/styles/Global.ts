@@ -11,6 +11,12 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${({ theme }) => theme.fontes.familia.primaria};
         min-height: 100vh;
     }
+
+    #root {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
 `
 
 export default GlobalStyles
