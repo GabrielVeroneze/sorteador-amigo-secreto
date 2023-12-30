@@ -7,7 +7,6 @@ export const Campo = styled.form`
     color: ${({ theme }) => theme.cores.texto.primaria};
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
     gap: 0.5rem 0;
     position: relative;
 
@@ -46,9 +45,11 @@ export const Input = styled.input`
         border: 2px solid #000000;
         border-radius: 37.5px 0px 0px 37.5px;
         box-shadow: 4px 4px 0px 0px #000000;
+        flex-grow: 1;
         font-size: 1rem;
         height: 82px;
         padding: 1.125rem 2.25rem 1.125rem 6.625rem;
+        width: auto;
     }
 `
 
