@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
-import { theme } from '../styles/Theme'
-import Formulario from './Formulario'
+import { theme } from '@/styles/Theme'
+import Formulario from '@/components/Formulario'
 
 test('quando o input está vazio, novos participantes não podem ser adicionados', () => {
     render(
