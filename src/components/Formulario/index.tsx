@@ -1,13 +1,18 @@
 import { useRef, useState } from 'react'
+import { useAdicionarParticipante } from '@/hooks/useAdicionarParticipante'
 import { Botao, Campo, Icone, Input } from './styles'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const Formulario = () => {
+    const { adicionarParticipante } = useAdicionarParticipante()
+
     const [nome, setNome] = useState<string>('')
     const inputRef = useRef<HTMLInputElement>(null)
 
     const handleSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
+
+        adicionarParticipante(nome)
 
         setNome('')
         inputRef.current?.focus()
