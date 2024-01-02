@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
 import { useAdicionarParticipante } from '@/hooks/useAdicionarParticipante'
 import { useMensagemDeErro } from '@/hooks/useMensagemDeErro'
-import { Botao, Campo, Icone, Input } from './styles'
+import { Botao, Campo, Icone, Input, Mensagem } from './styles'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
+import ErrorIcon from '@mui/icons-material/Error'
 
 const Formulario = () => {
     const { adicionarParticipante } = useAdicionarParticipante()
@@ -33,7 +34,12 @@ const Formulario = () => {
                 ref={inputRef}
             />
             <Botao disabled={!nome}>Adicionar</Botao>
-            {mensagemDeErro && <p role="alert">{mensagemDeErro}</p>}
+            {mensagemDeErro && (
+                <Mensagem role="alert">
+                    <ErrorIcon />
+                    {mensagemDeErro}
+                </Mensagem>
+            )}
         </Campo>
     )
 }
