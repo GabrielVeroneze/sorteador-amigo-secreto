@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '@/styles/Theme'
@@ -72,4 +72,43 @@ test('nomes duplicados não podem ser adicionados na lista', () => {
     const mensagemDeErro = screen.getByRole('alert')
 
     expect(mensagemDeErro.textContent).toBe('Nomes duplicados não são permitidos!')
+})
+
+test('a mensagem de erro deve sumir após os timers', () => {
+    jest.useFakeTimers()
+
+    render(
+        <ThemeProvider theme={theme}>
+            <RecoilRoot>
+                <Formulario />
+            </RecoilRoot>
+        </ThemeProvider>
+    )
+
+    const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
+    const botao = screen.getByRole('button')
+
+    fireEvent.change(input, {
+        target: {
+            value: 'John'
+        }
+    })
+    fireEvent.click(botao)
+
+    fireEvent.change(input, {
+        target: {
+            value: 'John'
+        }
+    })
+    fireEvent.click(botao)
+
+    let mensagemDeErro = screen.queryByRole('alert')
+    expect(mensagemDeErro).toBeInTheDocument()
+
+    act(() => {
+        jest.runAllTimers()
+    })
+
+    mensagemDeErro = screen.queryByRole('alert')
+    expect(mensagemDeErro).toBeNull()
 })
