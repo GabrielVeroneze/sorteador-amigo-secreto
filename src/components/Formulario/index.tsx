@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react'
 import { useAdicionarParticipante } from '@/hooks/useAdicionarParticipante'
+import { useMensagemDeErro } from '@/hooks/useMensagemDeErro'
 import { Botao, Campo, Icone, Input } from './styles'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const Formulario = () => {
     const { adicionarParticipante } = useAdicionarParticipante()
+    const { mensagemDeErro } = useMensagemDeErro()
 
     const [nome, setNome] = useState<string>('')
     const inputRef = useRef<HTMLInputElement>(null)
@@ -31,6 +33,7 @@ const Formulario = () => {
                 ref={inputRef}
             />
             <Botao disabled={!nome}>Adicionar</Botao>
+            {mensagemDeErro && <p role="alert">{mensagemDeErro}</p>}
         </Campo>
     )
 }
