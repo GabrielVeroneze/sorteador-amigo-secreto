@@ -12,6 +12,7 @@ export const Campo = styled.form`
 
     @media ${device.lg} {
         flex-direction: row;
+        flex-wrap: wrap;
     }
 `
 
@@ -60,6 +61,7 @@ export const Botao = styled.button`
     box-shadow: 2px 2px 0px 0px #000000;
     font-size: 1rem;
     height: 48px;
+    order: 2;
     width: 155px;
 
     @media ${device.lg} {
@@ -68,5 +70,21 @@ export const Botao = styled.button`
         box-shadow: 4px 4px 0px 0px #000000;
         height: 82px;
         width: 227px;
+    }
+`
+
+export const Mensagem = styled.p`
+    align-items: center;
+    color: #ff3923;
+    display: flex;
+    font-size: 0.875rem;
+    gap: 0.5rem;
+    order: 1;
+    padding-left: 2rem;
+    width: 100%;
+
+    @media ${device.lg} {
+        font-size: 1rem;
+        order: 3;
     }
 `
