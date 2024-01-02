@@ -7,7 +7,9 @@ import Formulario from '@/components/Formulario'
 test('quando o input está vazio, novos participantes não podem ser adicionados', () => {
     render(
         <ThemeProvider theme={theme}>
-            <Formulario />
+            <RecoilRoot>
+                <Formulario />
+            </RecoilRoot>
         </ThemeProvider>
     )
 
