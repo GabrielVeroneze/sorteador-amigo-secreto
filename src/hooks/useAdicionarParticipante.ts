@@ -7,8 +7,13 @@ export const useAdicionarParticipante = () => {
 
     const adicionarParticipante = (nomeParticipante: string) => {
 
-        if(listaDeParticipantes.includes(nomeParticipante)) {
+        if (listaDeParticipantes.includes(nomeParticipante)) {
             setMensagemDeErro('Nomes duplicados não são permitidos!')
+
+            setTimeout(() => {
+                setMensagemDeErro('')
+            }, 5000)
+
             return
         }
 
