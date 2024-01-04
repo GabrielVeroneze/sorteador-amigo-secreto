@@ -7,7 +7,6 @@ const Inicio = () => {
     const { listaDeParticipantes } = useListaDeParticipantes()
 
     return (
-        <Formulario />
         <>
             <Formulario />
             <Lista>
@@ -17,6 +16,9 @@ const Inicio = () => {
                     </Participante>
                 ))}
             </Lista>
+            <Botao>
+                Iniciar brincadeira!
+            </Botao>
         </>
     )
 }
