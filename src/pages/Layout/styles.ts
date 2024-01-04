@@ -5,6 +5,8 @@ export const Principal = styled.main`
     background-color: ${({ theme }) => theme.cores.fundo.primaria};
     border: 1px solid #000000;
     border-radius: 48px 48px 0px 0px;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr;
     flex-grow: 1;
     margin-bottom: -53px;
     padding: 3.125rem ${({ theme }) => theme.paddings.lateral.pequeno};
