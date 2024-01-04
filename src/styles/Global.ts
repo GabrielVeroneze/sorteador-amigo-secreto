@@ -17,6 +17,10 @@ const GlobalStyles = createGlobalStyle`
         flex-direction: column;
         min-height: 100vh;
     }
+
+    button {
+        cursor: pointer;
+    }
 `
 
 export default GlobalStyles
