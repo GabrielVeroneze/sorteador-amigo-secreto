@@ -14,12 +14,24 @@ export const Button = styled.button`
     padding: 0 1.5rem;
     width: 155px;
 
+    svg {
+        display: none;
+    }
+
     @media ${device.lg} {
+        align-items: center;
         border: 2px solid #000000;
         box-shadow: 4px 4px 0px 0px #000000;
+        display: flex;
         font-size: 1.25rem;
+        gap: 1.625rem;
         height: 80px;
         padding: 0 2.5rem;
         width: auto;
+
+        svg {
+            display: inline-block;
+            font-size: 2.5rem;
+        }
     }
 `
