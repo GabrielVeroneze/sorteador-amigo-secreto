@@ -1,8 +1,10 @@
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
-import { Lista, Participante } from './styles'
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import { Lista, Participante, Wrapper } from './styles'
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
 import Formulario from '@/components/Formulario'
 import Botao from '@/components/Botao'
+import imagemSm from '@/assets/images/sacolas-de-compras.png'
+import imagemMd from '@/assets/images/sacolas-de-compras-1024.png'
 
 const Inicio = () => {
     const { listaDeParticipantes } = useListaDeParticipantes()
@@ -17,10 +19,16 @@ const Inicio = () => {
                     </Participante>
                 ))}
             </Lista>
-            <Botao>
-                <PlayCircleOutlineIcon />
-                Iniciar brincadeira!
-            </Botao>
+            <Wrapper>
+                <Botao>
+                    <PlayCircleOutlineIcon />
+                    Iniciar brincadeira!
+                </Botao>
+                <picture>
+                    <source srcSet={imagemMd} media="(min-width: 1024px)" />
+                    <img src={imagemSm} alt="Sacolas de compras" />
+                </picture>
+            </Wrapper>
         </>
     )
 }
