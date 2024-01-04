@@ -18,3 +18,16 @@ export const Participante = styled.li`
         font-size: 1.125rem;
     }
 `
+
+export const Wrapper = styled.div`
+    align-items: center;
+    align-self: self-end;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media ${device.lg} {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+`
