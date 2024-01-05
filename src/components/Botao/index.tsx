@@ -2,11 +2,14 @@ import { Button } from './styles'
 
 interface BotaoProps {
     children: React.ReactNode
+    onClick?: () => void
 }
 
-const Botao = ({ children }: BotaoProps) => {
+const Botao = ({ children, onClick }: BotaoProps) => {
     return (
-        <Button>{children}</Button>
+        <Button onClick={onClick}>
+            {children}
+        </Button>
     )
 }
 
