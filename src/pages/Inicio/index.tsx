@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
 import { Lista, Participante, Wrapper } from './styles'
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
@@ -8,6 +9,11 @@ import imagemMd from '@/assets/images/sacolas-de-compras-1024.png'
 
 const Inicio = () => {
     const { listaDeParticipantes } = useListaDeParticipantes()
+    const navigate = useNavigate()
+
+    const navegarRotas = () => {
+        navigate('/sorteio')
+    }
 
     return (
         <>
@@ -20,7 +26,7 @@ const Inicio = () => {
                 ))}
             </Lista>
             <Wrapper>
-                <Botao>
+                <Botao onClick={navegarRotas}>
                     <PlayCircleOutlineIcon />
                     Iniciar brincadeira!
                 </Botao>
