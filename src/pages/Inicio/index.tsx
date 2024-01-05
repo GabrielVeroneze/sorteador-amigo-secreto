@@ -1,15 +1,14 @@
 import { useNavigate } from 'react-router-dom'
-import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
-import { Lista, Participante, Wrapper } from './styles'
+import { Wrapper } from './styles'
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
 import Titulo from '@/components/Titulo'
 import Formulario from '@/components/Formulario'
+import ListaParticipantes from '@/components/ListaParticipantes'
 import Botao from '@/components/Botao'
 import imagemSm from '@/assets/images/sacolas-de-compras.png'
 import imagemMd from '@/assets/images/sacolas-de-compras-1024.png'
 
 const Inicio = () => {
-    const { listaDeParticipantes } = useListaDeParticipantes()
     const navigate = useNavigate()
 
     const navegarRotas = () => {
@@ -20,13 +19,7 @@ const Inicio = () => {
         <>
             <Titulo>Vamos começar!</Titulo>
             <Formulario />
-            <Lista>
-                {listaDeParticipantes.map((participante, index) => (
-                    <Participante key={index}>
-                        {participante}
-                    </Participante>
-                ))}
-            </Lista>
+            <ListaParticipantes />
             <Wrapper>
                 <Botao onClick={navegarRotas}>
                     <PlayCircleOutlineIcon />
