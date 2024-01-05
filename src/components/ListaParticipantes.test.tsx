@@ -27,3 +27,22 @@ describe('uma lista vazia de participantes', () => {
     })
 })
 
+describe('uma lista preenchida de participantes', () => {
+    const participantes = ['João', 'Maria', 'José', 'Lúcia']
+
+    beforeEach(() => {
+        (useListaDeParticipantes as jest.Mock).mockReturnValue(participantes)
+    })
+
+    test('deve ser renderizada com elementos', () => {
+        render(
+            <RecoilRoot>
+                <ListaParticipantes />
+            </RecoilRoot>
+        )
+
+        const itens = screen.queryAllByRole('listitem')
+
+        expect(itens).toHaveLength(participantes.length)
+    })
+})
