@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
 import { Lista, Participante, Wrapper } from './styles'
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
+import Titulo from '@/components/Titulo'
 import Formulario from '@/components/Formulario'
 import Botao from '@/components/Botao'
 import imagemSm from '@/assets/images/sacolas-de-compras.png'
@@ -17,6 +18,7 @@ const Inicio = () => {
 
     return (
         <>
+            <Titulo>Vamos começar!</Titulo>
             <Formulario />
             <Lista>
                 {listaDeParticipantes.map((participante, index) => (
