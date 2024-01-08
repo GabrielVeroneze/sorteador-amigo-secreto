@@ -7,9 +7,7 @@ const ListaParticipantes = () => {
     return (
         <Lista>
             {listaDeParticipantes.map(participante => (
-                <Participante key={participante}>
-                    {participante}
-                </Participante>
+                <Participante key={participante}>{participante}</Participante>
             ))}
         </Lista>
     )
