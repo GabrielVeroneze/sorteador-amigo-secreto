@@ -1,3 +1,4 @@
+import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
 import { Button } from './styles'
 
 interface BotaoProps {
@@ -6,8 +7,13 @@ interface BotaoProps {
 }
 
 const Botao = ({ children, onClick }: BotaoProps) => {
+    const { listaDeParticipantes } = useListaDeParticipantes()
+
     return (
-        <Button onClick={onClick}>
+        <Button
+            disabled={listaDeParticipantes.length < 3}
+            onClick={onClick}
+        >
             {children}
         </Button>
     )
