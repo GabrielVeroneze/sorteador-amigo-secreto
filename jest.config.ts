@@ -3,10 +3,10 @@ export default {
     testEnvironment: 'jsdom',
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
+        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     },
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
-        '\\.(png|jpg|jpeg|gif|svg|ttf|eot)$': '<rootDir>/test/__ mocks __/fileMock.ts',
     },
 }
