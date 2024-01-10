@@ -10,6 +10,12 @@ jest.mock('@/hooks/useListaDeParticipantes', () => ({
     useListaDeParticipantes: jest.fn()
 }))
 
+const mockNavegacao = jest.fn()
+
+jest.mock('react-router-dom', () => ({
+    useNavigate: () => mockNavegacao
+}))
+
 describe('quando não existem participantes suficientes', () => {
     const listaDeParticipantes: string[] = []
 
