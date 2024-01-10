@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
@@ -26,11 +25,9 @@ describe('quando não existem participantes suficientes', () => {
     test('a brincadeira não pode ser iniciada', () => {
         render(
             <ThemeProvider theme={theme}>
-                <Router>
-                    <RecoilRoot>
-                        <Rodape />
-                    </RecoilRoot>
-                </Router>
+                <RecoilRoot>
+                    <Rodape />
+                </RecoilRoot>
             </ThemeProvider>
         )
 
@@ -50,11 +47,9 @@ describe('quando existem participantes suficientes', () => {
     test('a brincadeira pode ser iniciada', () => {
         render(
             <ThemeProvider theme={theme}>
-                <Router>
-                    <RecoilRoot>
-                        <Rodape />
-                    </RecoilRoot>
-                </Router>
+                <RecoilRoot>
+                    <Rodape />
+                </RecoilRoot>
             </ThemeProvider>
         )
 
@@ -66,17 +61,15 @@ describe('quando existem participantes suficientes', () => {
     test('a brincadeira foi iniciada', () => {
         render(
             <ThemeProvider theme={theme}>
-                <Router>
-                    <RecoilRoot>
-                        <Rodape />
-                    </RecoilRoot>
-                </Router>
+                <RecoilRoot>
+                    <Rodape />
+                </RecoilRoot>
             </ThemeProvider>
         )
 
         const botao = screen.getByRole('button')
         fireEvent.click(botao)
-        
+
         expect(mockNavegacao).toHaveBeenCalledTimes(1)
         expect(mockNavegacao).toHaveBeenCalledWith('/sorteio')
     })
