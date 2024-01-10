@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
@@ -61,5 +61,23 @@ describe('quando existem participantes suficientes', () => {
         const botao = screen.getByRole('button')
 
         expect(botao).not.toBeDisabled()
+    })
+
+    test('a brincadeira foi iniciada', () => {
+        render(
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <RecoilRoot>
+                        <Rodape />
+                    </RecoilRoot>
+                </Router>
+            </ThemeProvider>
+        )
+
+        const botao = screen.getByRole('button')
+        fireEvent.click(botao)
+        
+        expect(mockNavegacao).toHaveBeenCalledTimes(1)
+        expect(mockNavegacao).toHaveBeenCalledWith('/sorteio')
     })
 })
