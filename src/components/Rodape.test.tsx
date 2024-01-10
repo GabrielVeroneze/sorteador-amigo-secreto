@@ -39,3 +39,27 @@ describe('quando não existem participantes suficientes', () => {
         expect(botao).toBeDisabled()
     })
 })
+
+describe('quando existem participantes suficientes', () => {
+    const listaDeParticipantes: string[] = ['João', 'Maria', 'José', 'Lúcia']
+
+    beforeEach(() => {
+        (useListaDeParticipantes as jest.Mock).mockReturnValue({ listaDeParticipantes })
+    })
+
+    test('a brincadeira pode ser iniciada', () => {
+        render(
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <RecoilRoot>
+                        <Rodape />
+                    </RecoilRoot>
+                </Router>
+            </ThemeProvider>
+        )
+
+        const botao = screen.getByRole('button')
+
+        expect(botao).not.toBeDisabled()
+    })
+})
