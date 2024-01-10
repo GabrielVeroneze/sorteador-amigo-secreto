@@ -2,10 +2,21 @@ import { render, screen } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
+import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
 import { theme } from '@/styles/Theme'
 import Rodape from '@/components/Rodape'
 
-describe('onde não existem participantes suficientes', () => {
+jest.mock('@/hooks/useListaDeParticipantes', () => ({
+    useListaDeParticipantes: jest.fn()
+}))
+
+describe('quando não existem participantes suficientes', () => {
+    const listaDeParticipantes: string[] = []
+
+    beforeEach(() => {
+        (useListaDeParticipantes as jest.Mock).mockReturnValue({ listaDeParticipantes })
+    })
+
     test('a brincadeira não pode ser iniciada', () => {
         render(
             <ThemeProvider theme={theme}>
