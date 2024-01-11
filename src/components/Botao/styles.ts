@@ -14,6 +14,11 @@ export const Button = styled.button`
     padding: 0 1.5rem;
     width: 155px;
 
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
     svg {
         display: none;
     }
