@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
+import { theme } from '@/styles/Theme'
 import Sorteio from '@/pages/Sorteio'
 
 jest.mock('@/hooks/useListaDeParticipantes', () => ({
@@ -16,9 +18,11 @@ describe('na página de sorteio', () => {
 
     test('todos os participantes podem exibir seu amigo secreto', () => {
         render(
-            <RecoilRoot>
-                <Sorteio />
-            </RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <RecoilRoot>
+                    <Sorteio />
+                </RecoilRoot>
+            </ThemeProvider>
         )
 
         const opcoes = screen.queryAllByRole('option')
