@@ -6,8 +6,8 @@ const Sorteio = () => {
 
     return (
         <>
-            <MenuOpcoes>
-                <option disabled selected hidden>
+            <MenuOpcoes defaultValue="">
+                <option value="" disabled hidden>
                     Selecione seu nome
                 </option>
                 {listaDeParticipantes.map(participante => (
