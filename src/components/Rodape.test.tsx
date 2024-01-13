@@ -9,6 +9,12 @@ jest.mock('@/hooks/useListaDeParticipantes', () => ({
     useListaDeParticipantes: jest.fn()
 }))
 
+const mockSorteio = jest.fn()
+
+jest.mock('@/hooks/useSorteador', () => ({
+    useSorteador: () =>  ({ sortearParticipantes: mockSorteio })
+}))
+
 const mockNavegacao = jest.fn()
 
 jest.mock('react-router-dom', () => ({
@@ -72,5 +78,6 @@ describe('quando existem participantes suficientes', () => {
 
         expect(mockNavegacao).toHaveBeenCalledTimes(1)
         expect(mockNavegacao).toHaveBeenCalledWith('/sorteio')
+        expect(mockSorteio).toHaveBeenCalledTimes(1)
     })
 })
