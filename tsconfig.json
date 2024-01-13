@@ -10,6 +10,7 @@
     "module": "ESNext",
     "types": ["@testing-library/jest-dom", "node"],
     "skipLibCheck": true,
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
