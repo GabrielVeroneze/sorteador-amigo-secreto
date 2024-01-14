@@ -53,7 +53,6 @@ describe('na página de sorteio', () => {
 
         const select = screen.getByRole('combobox')
         const botao = screen.getByRole('button')
-        const amigoSecreto = screen.getByRole('alert')
 
         fireEvent.change(select, {
             target: {
@@ -61,6 +60,8 @@ describe('na página de sorteio', () => {
             }
         })
         fireEvent.click(botao)
+
+        const amigoSecreto = screen.getByRole('alert')
 
         expect(amigoSecreto).toBeInTheDocument()
     })
