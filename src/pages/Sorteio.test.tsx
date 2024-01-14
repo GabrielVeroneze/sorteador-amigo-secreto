@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
+import { useResultadoSorteio } from '@/hooks/useResultadoSorteio'
 import { theme } from '@/styles/Theme'
 import Sorteio from '@/pages/Sorteio'
 
@@ -9,11 +10,22 @@ jest.mock('@/hooks/useListaDeParticipantes', () => ({
     useListaDeParticipantes: jest.fn()
 }))
 
+jest.mock('@/hooks/useResultadoSorteio', () => ({
+    useResultadoSorteio: jest.fn()
+}))
+
 describe('na página de sorteio', () => {
     const listaDeParticipantes: string[] = ['João', 'Maria', 'José', 'Lúcia']
+    const resultadoSorteio: Map<string, string> = new Map([
+        ['Lúcia', 'João'],
+        ['João', 'José'],
+        ['José', 'Maria'],
+        ['Maria', 'Lúcia'],
+    ])
 
     beforeEach(() => {
-        (useListaDeParticipantes as jest.Mock).mockReturnValue({ listaDeParticipantes })
+        (useListaDeParticipantes as jest.Mock).mockReturnValue({ listaDeParticipantes });
+        (useResultadoSorteio as jest.Mock).mockReturnValue({ resultadoSorteio });
     })
 
     test('todos os participantes podem exibir seu amigo secreto', () => {
