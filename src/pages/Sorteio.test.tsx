@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
 import { useListaDeParticipantes } from '@/hooks/useListaDeParticipantes'
@@ -64,5 +64,35 @@ describe('na página de sorteio', () => {
         const amigoSecreto = screen.getByRole('alert')
 
         expect(amigoSecreto).toBeInTheDocument()
+    })
+
+    test('esconde o amigo secreto sorteado depois de 5 segundos', async () => {
+        jest.useFakeTimers()
+
+        render(
+            <ThemeProvider theme={theme}>
+                <RecoilRoot>
+                    <Sorteio />
+                </RecoilRoot>
+            </ThemeProvider>
+        )
+
+        const select = screen.getByRole('combobox')
+        const botao = screen.getByRole('button')
+
+        fireEvent.change(select, {
+            target: {
+                value: listaDeParticipantes[0]
+            }
+        })
+        fireEvent.click(botao)
+
+        const amigoSecreto = screen.queryByRole('alert')
+
+        act(() => {
+            jest.runAllTimers()
+        })
+
+        expect(amigoSecreto).not.toBeInTheDocument()
     })
 })
