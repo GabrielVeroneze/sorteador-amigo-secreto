@@ -17,6 +17,10 @@ const Sorteio = () => {
 
     const sortear = () => {
         setAmigoSecreto(resultadoSorteio.get(participanteAtual))
+
+        setTimeout(() => {
+            setAmigoSecreto('')
+        }, 5000)
     }
 
     return (
